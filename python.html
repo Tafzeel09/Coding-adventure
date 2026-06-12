@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Kingdom — Coding Adventure</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="python">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">⚡ Coding<span>Adventure</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="html.html" class="nav-link">HTML</a>
+      <a href="css.html" class="nav-link">CSS</a>
+      <a href="javascript.html" class="nav-link">JavaScript</a>
+      <a href="python.html" class="nav-link">Python</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </div>
+    <div class="nav-right">
+      <div class="xp-pill" id="nav-xp">⚡ 0 XP</div>
+      <div class="level-pill" id="nav-level">Lv.1</div>
+      <button class="theme-toggle" id="soundToggle" title="Toggle sound" style="font-size:.9rem">&#128266;</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" id="settingsBtn" title="Settings" onclick="openSettings()" style="font-size:.9rem">&#9881;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="html.html" class="nav-link">HTML Kingdom</a>
+    <a href="css.html" class="nav-link">CSS Kingdom</a>
+    <a href="javascript.html" class="nav-link">JS Kingdom</a>
+    <a href="python.html" class="nav-link">Python Kingdom</a>
+    <a href="achievements.html" class="nav-link">Achievements</a>
+    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    <a href="about.html" class="nav-link">About</a>
+  </div>
+  <div class="page-wrapper">
+    <div class="container">
+      <div style="margin-bottom:20px">
+        <h1 class="page-title" style="background:linear-gradient(135deg,#fff,var(--py));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">🐍 Python Kingdom</h1>
+        <p class="page-subtitle">Learn the language of AI, data science, and automation</p>
+      </div>
+      <div class="kingdom-layout">
+        <div class="kingdom-sidebar" id="sidebar"></div>
+        <div class="content-area" id="content-area"></div>
+      </div>
+    </div>
+    <footer class="page-footer">Built with ❤️ by <span>@Taiba Shabbir</span> · Coding Adventure © 2025</footer>
+  </div>
+  <div class="toast-container" id="toasts"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/game.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Coding Adventure</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="dashboard">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">⚡ Coding<span>Adventure</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="html.html" class="nav-link">HTML</a>
+      <a href="css.html" class="nav-link">CSS</a>
+      <a href="javascript.html" class="nav-link">JavaScript</a>
+      <a href="python.html" class="nav-link">Python</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </div>
+    <div class="nav-right">
+      <div class="xp-pill" id="nav-xp">⚡ 0 XP</div>
+      <div class="level-pill" id="nav-level">Lv.1</div>
+      <button class="theme-toggle" id="soundToggle" title="Toggle sound" style="font-size:.9rem">&#128266;</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" id="settingsBtn" title="Settings" onclick="openSettings()" style="font-size:.9rem">&#9881;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="html.html" class="nav-link">HTML Kingdom</a>
+    <a href="css.html" class="nav-link">CSS Kingdom</a>
+    <a href="javascript.html" class="nav-link">JS Kingdom</a>
+    <a href="python.html" class="nav-link">Python Kingdom</a>
+    <a href="achievements.html" class="nav-link">Achievements</a>
+    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    <a href="about.html" class="nav-link">About</a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- Header -->
+      <div style="margin-bottom:28px">
+        <h1 id="welcome-msg" class="page-title">Welcome back! 👋</h1>
+        <p class="page-subtitle">Track your progress across all coding kingdoms.</p>
+      </div>
+
+      <!-- XP Progress Bar -->
+      <div class="xp-section">
+        <div class="xp-header">
+          <span class="xp-level-label" id="lv-label">Level 1 — Beginner</span>
+          <span class="xp-count" id="xp-text">0 / 100 XP</span>
+        </div>
+        <div class="xp-bar-track"><div class="xp-bar-fill" id="xp-fill" style="width:0%"></div></div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid-4" style="margin-bottom:28px">
+        <div class="stat-card">
+          <span class="stat-icon">⚡</span>
+          <span class="stat-value" id="stat-xp">0</span>
+          <span class="stat-label">Total XP</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🏆</span>
+          <span class="stat-value" id="stat-level">1</span>
+          <span class="stat-label">Current Level</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">📚</span>
+          <span class="stat-value" id="stat-lessons">0/30</span>
+          <span class="stat-label">Lessons Done</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🏅</span>
+          <span class="stat-value" id="stat-badges">0/10</span>
+          <span class="stat-label">Achievements</span>
+        </div>
+      </div>
+
+      <!-- Two-column: kingdoms + sidebar -->
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start">
+
+        <!-- Kingdoms Progress -->
+        <div>
+          <div class="section-title">🗺️ Kingdom Progress</div>
+          <div class="grid-2" style="margin-bottom:24px">
+
+            <a href="html.html" class="kingdom-card k-html" style="text-decoration:none">
+              <span class="k-icon">🏰</span>
+              <div class="k-name">HTML Kingdom</div>
+              <div class="k-desc">Building blocks of the web</div>
+              <div class="k-progress">
+                <div class="progress-track"><div class="progress-fill" id="kp-fill-html" style="width:0%"></div></div>
+                <span class="progress-label" id="kp-pct-html">0%</span>
+              </div>
+              <div style="font-size:.72rem;color:var(--text2);margin-top:6px" id="kp-done-html">0/7 lessons</div>
+            </a>
+
+            <a href="css.html" class="kingdom-card k-css" style="text-decoration:none">
+              <span class="k-icon">🎨</span>
+              <div class="k-name">CSS Kingdom</div>
+              <div class="k-desc">Style and beautify the web</div>
+              <div class="k-progress">
+                <div class="progress-track"><div class="progress-fill" id="kp-fill-css" style="width:0%"></div></div>
+                <span class="progress-label" id="kp-pct-css">0%</span>
+              </div>
+              <div style="font-size:.72rem;color:var(--text2);margin-top:6px" id="kp-done-css">0/7 lessons</div>
+            </a>
+
+            <a href="javascript.html" class="kingdom-card k-js" style="text-decoration:none">
+              <span class="k-icon">⚡</span>
+              <div class="k-name">JavaScript Kingdom</div>
+              <div class="k-desc">Add interactivity and logic</div>
+              <div class="k-progress">
+                <div class="progress-track"><div class="progress-fill" id="kp-fill-javascript" style="width:0%"></div></div>
+                <span class="progress-label" id="kp-pct-javascript">0%</span>
+              </div>
+              <div style="font-size:.72rem;color:var(--text2);margin-top:6px" id="kp-done-javascript">0/8 lessons</div>
+            </a>
+
+            <a href="python.html" class="kingdom-card k-py" style="text-decoration:none">
+              <span class="k-icon">🐍</span>
+              <div class="k-name">Python Kingdom</div>
+              <div class="k-desc">AI, data science & automation</div>
+              <div class="k-progress">
+                <div class="progress-track"><div class="progress-fill" id="kp-fill-python" style="width:0%"></div></div>
+                <span class="progress-label" id="kp-pct-python">0%</span>
+              </div>
+              <div style="font-size:.72rem;color:var(--text2);margin-top:6px" id="kp-done-python">0/8 lessons</div>
+            </a>
+
+          </div>
+
+          <!-- Daily Challenge -->
+          <div class="section-title">🔥 Daily Challenge</div>
+          <div id="daily-challenge"></div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div>
+          <!-- Levels Guide -->
+          <div class="card" style="margin-bottom:20px">
+            <div class="section-title" style="margin-bottom:16px">🏆 Level Ladder</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--bg2)">
+                <span style="font-size:1.2rem">🌱</span>
+                <div><div style="font-weight:700;font-size:.83rem">Level 1 — Beginner</div><div style="font-size:.72rem;color:var(--text2)">0 XP</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--bg2)">
+                <span style="font-size:1.2rem">🔭</span>
+                <div><div style="font-weight:700;font-size:.83rem">Level 2 — Explorer</div><div style="font-size:.72rem;color:var(--text2)">100 XP</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--bg2)">
+                <span style="font-size:1.2rem">💻</span>
+                <div><div style="font-weight:700;font-size:.83rem">Level 3 — Coder</div><div style="font-size:.72rem;color:var(--text2)">300 XP</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:var(--bg2)">
+                <span style="font-size:1.2rem">🛠️</span>
+                <div><div style="font-weight:700;font-size:.83rem">Level 4 — Developer</div><div style="font-size:.72rem;color:var(--text2)">600 XP</div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:linear-gradient(135deg,rgba(255,215,0,.1),rgba(255,165,0,.05));border:1px solid var(--border-h)">
+                <span style="font-size:1.2rem">🌟</span>
+                <div><div style="font-weight:700;font-size:.83rem;color:var(--gold)">Level 5 — Coding Master</div><div style="font-size:.72rem;color:var(--text2)">1000 XP</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Achievements -->
+          <div class="card" style="margin-bottom:20px">
+            <div class="section-title" style="margin-bottom:12px">🏅 Recent Achievements</div>
+            <div id="recent-achievements"></div>
+            <a href="achievements.html" class="btn btn-ghost btn-sm w-full" style="margin-top:14px;text-align:center;display:block">View All Achievements →</a>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="card">
+            <div class="section-title" style="margin-bottom:12px">⚡ Quick Start</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a href="html.html" class="btn btn-ghost w-full" style="justify-content:flex-start">🏰 HTML Kingdom</a>
+              <a href="css.html" class="btn btn-ghost w-full" style="justify-content:flex-start">🎨 CSS Kingdom</a>
+              <a href="javascript.html" class="btn btn-ghost w-full" style="justify-content:flex-start">⚡ JavaScript Kingdom</a>
+              <a href="python.html" class="btn btn-ghost w-full" style="justify-content:flex-start">🐍 Python Kingdom</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="page-footer">Built with ❤️ by <span>@Taiba Shabbir</span> · Coding Adventure © 2025</footer>
+  </div>
+
+  <div class="toast-container" id="toasts"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/game.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

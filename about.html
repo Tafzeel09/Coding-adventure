@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Coding Adventure — A gamified coding education platform built with HTML, CSS, and JavaScript.">
+  <title>About — Coding Adventure</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .tech-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 99px; font-size: .78rem; font-weight: 700;
+      border: 1px solid var(--border-h); background: var(--glow);
+      color: var(--gold); margin: 4px;
+    }
+    .team-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px 24px; text-align: center;
+      transition: var(--tr);
+    }
+    .team-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+    .timeline-item {
+      display: flex; gap: 16px; padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .tl-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold-d), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fd); font-size: .72rem; font-weight: 700; color: #000;
+    }
+    .stat-hero {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; text-align: center; transition: var(--tr);
+    }
+    .stat-hero:hover { border-color: var(--border-h); }
+    .stat-hero .n { font-family: var(--fd); font-size: 1.8rem; font-weight: 900; color: var(--gold); }
+    .stat-hero .l { font-size: .75rem; color: var(--text2); margin-top: 4px; }
+  </style>
+</head>
+<body data-page="about">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">⚡ Coding<span>Adventure</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="html.html" class="nav-link">HTML</a>
+      <a href="css.html" class="nav-link">CSS</a>
+      <a href="javascript.html" class="nav-link">JavaScript</a>
+      <a href="python.html" class="nav-link">Python</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </div>
+    <div class="nav-right">
+      <div class="xp-pill" id="nav-xp">⚡ 0 XP</div>
+      <div class="level-pill" id="nav-level">Lv.1</div>
+      <button class="theme-toggle" id="soundToggle" title="Toggle sound" style="font-size:.9rem">🔊</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" id="settingsBtn" title="Settings" onclick="openSettings()" style="font-size:.9rem">⚙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="html.html" class="nav-link">HTML Kingdom</a>
+    <a href="css.html" class="nav-link">CSS Kingdom</a>
+    <a href="javascript.html" class="nav-link">JS Kingdom</a>
+    <a href="python.html" class="nav-link">Python Kingdom</a>
+    <a href="achievements.html" class="nav-link">Achievements</a>
+    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    <a href="about.html" class="nav-link">About</a>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- HERO -->
+      <div style="text-align:center;padding:20px 0 48px;max-width:680px;margin:0 auto">
+        <div class="hero-badge">🎓 Educational Gaming Platform</div>
+        <h1 class="page-title" style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:14px">About Coding Adventure</h1>
+        <p style="font-size:1rem;color:var(--text2);line-height:1.8;margin-bottom:28px">
+          Coding Adventure is a free, gamified coding education platform that teaches
+          HTML, CSS, JavaScript, and Python through interactive lessons, quizzes,
+          and real challenges — completely in the browser, no install required.
+        </p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="index.html" class="btn btn-primary">🚀 Start Learning</a>
+          <a href="dashboard.html" class="btn btn-outline">📊 Dashboard</a>
+        </div>
+      </div>
+
+      <!-- STATS ROW -->
+      <div class="grid-4" style="margin-bottom:48px">
+        <div class="stat-hero"><div class="n">30+</div><div class="l">Interactive Lessons</div></div>
+        <div class="stat-hero"><div class="n">120+</div><div class="l">Quiz Questions</div></div>
+        <div class="stat-hero"><div class="n">14</div><div class="l">Coding Challenges</div></div>
+        <div class="stat-hero"><div class="n">10</div><div class="l">Achievement Badges</div></div>
+      </div>
+
+      <!-- FEATURES GRID -->
+      <div class="section-title">✨ Platform Features</div>
+      <div class="about-grid" style="margin-bottom:48px">
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-content">
+            <h4>XP & Level System</h4>
+            <p>Earn XP for every lesson, quiz, and challenge. Level up from Beginner to Coding Master as you progress.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🧠</span>
+          <div class="feature-content">
+            <h4>Interactive Quizzes</h4>
+            <p>Every lesson has a 4-question multiple-choice quiz with instant feedback and explanations for each answer.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🎯</span>
+          <div class="feature-content">
+            <h4>Coding Challenges</h4>
+            <p>14 real-world coding challenges with hints, solution reveals, and XP rewards to test your skills.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🏅</span>
+          <div class="feature-content">
+            <h4>Achievement Badges</h4>
+            <p>Unlock 10 unique achievement badges as milestones — from First Steps to Coding Master and beyond.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔥</span>
+          <div class="feature-content">
+            <h4>Daily Challenges</h4>
+            <p>A new challenge every day across all four kingdoms. Build a streak and earn consistency badges.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🏆</span>
+          <div class="feature-content">
+            <h4>Leaderboard</h4>
+            <p>Local leaderboard tracks your XP ranking. Add friends and compete to be the top coder!</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💾</span>
+          <div class="feature-content">
+            <h4>Progress Persistence</h4>
+            <p>All progress is saved automatically to your browser's localStorage — no account or backend needed.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📱</span>
+          <div class="feature-content">
+            <h4>Fully Responsive</h4>
+            <p>Learn on any device — desktop, tablet, or mobile. Every page is optimized for all screen sizes.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🌙</span>
+          <div class="feature-content">
+            <h4>Dark / Light Mode</h4>
+            <p>Toggle between a beautiful cyberpunk dark mode and a clean light theme. Your preference is saved.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔊</span>
+          <div class="feature-content">
+            <h4>Sound Effects</h4>
+            <p>Satisfying Web Audio API sound effects for correct answers, level-ups, and achievement unlocks — no files needed!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARNING PATH -->
+      <div class="section-title">🗺️ Learning Path</div>
+      <div class="card" style="margin-bottom:48px">
+        <div class="timeline-item">
+          <div class="tl-num">1</div>
+          <div>
+            <div style="font-weight:700;color:var(--html);margin-bottom:4px">🏰 HTML Kingdom — 7 Lessons</div>
+            <div style="font-size:.83rem;color:var(--text2)">Headings · Paragraphs · Links · Images · Lists · Forms · Semantic HTML</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-num">2</div>
+          <div>
+            <div style="font-weight:700;color:var(--css);margin-bottom:4px">🎨 CSS Kingdom — 7 Lessons</div>
+            <div style="font-size:.83rem;color:var(--text2)">Colors · Fonts · Box Model · Flexbox · Grid · Animations · Responsive Design</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-num">3</div>
+          <div>
+            <div style="font-weight:700;color:var(--js);margin-bottom:4px">⚡ JavaScript Kingdom — 8 Lessons</div>
+            <div style="font-size:.83rem;color:var(--text2)">Variables · Functions · Conditions · Loops · Arrays · DOM · Events · Fetch API</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-num">4</div>
+          <div>
+            <div style="font-weight:700;color:var(--py);margin-bottom:4px">🐍 Python Kingdom — 8 Lessons</div>
+            <div style="font-size:.83rem;color:var(--text2)">Variables · Data Types · Conditions · Loops · Functions · Lists · Dictionaries · Mini Projects</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECH STACK -->
+      <div class="section-title">🛠️ Built With</div>
+      <div style="padding:20px 0 48px">
+        <div style="margin-bottom:16px">
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">Vanilla JavaScript</span>
+          <span class="tech-badge">LocalStorage API</span>
+          <span class="tech-badge">Web Audio API</span>
+          <span class="tech-badge">CSS Grid & Flexbox</span>
+          <span class="tech-badge">CSS Custom Properties</span>
+          <span class="tech-badge">Google Fonts</span>
+        </div>
+        <div class="card" style="padding:20px">
+          <div style="font-weight:700;margin-bottom:8px">💡 Zero Dependencies</div>
+          <div style="font-size:.85rem;color:var(--text2);line-height:1.7">
+            Coding Adventure is built with pure HTML, CSS, and JavaScript — no frameworks, no npm packages,
+            no build tools. Just open <code style="font-family:var(--fc);background:var(--bg2);padding:2px 6px;border-radius:4px">index.html</code>
+            in any browser and start learning. The entire app is self-contained and works completely offline
+            after the Google Fonts are cached.
+          </div>
+        </div>
+      </div>
+
+      <!-- XP BREAKDOWN -->
+      <div class="section-title">⚡ How XP Works</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:48px">
+        <div class="card" style="text-align:center">
+          <div style="font-size:1.4rem;margin-bottom:8px">📖</div>
+          <div style="font-family:var(--fd);font-size:.85rem;color:var(--gold);font-weight:700">+10–20 XP</div>
+          <div style="font-size:.78rem;color:var(--text2);margin-top:4px">First-time lesson completion</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:1.4rem;margin-bottom:8px">🎯</div>
+          <div style="font-family:var(--fd);font-size:.85rem;color:var(--gold);font-weight:700">+5 XP each</div>
+          <div style="font-size:.78rem;color:var(--text2);margin-top:4px">Per correct quiz answer</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:1.4rem;margin-bottom:8px">⭐</div>
+          <div style="font-family:var(--fd);font-size:.85rem;color:var(--gold);font-weight:700">+20 XP bonus</div>
+          <div style="font-size:.78rem;color:var(--text2);margin-top:4px">Perfect quiz (100% score)</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:1.4rem;margin-bottom:8px">🏆</div>
+          <div style="font-family:var(--fd);font-size:.85rem;color:var(--gold);font-weight:700">+50–70 XP</div>
+          <div style="font-size:.78rem;color:var(--text2);margin-top:4px">Coding challenge completion</div>
+        </div>
+        <div class="card" style="text-align:center">
+          <div style="font-size:1.4rem;margin-bottom:8px">🔥</div>
+          <div style="font-family:var(--fd);font-size:.85rem;color:var(--gold);font-weight:700">+25 XP daily</div>
+          <div style="font-size:.78rem;color:var(--text2);margin-top:4px">Daily challenge answer</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;padding:48px 24px;background:linear-gradient(135deg,rgba(255,215,0,.06),rgba(255,215,0,.02));border-radius:24px;border:1px solid var(--border-h);margin-bottom:48px">
+        <div style="font-size:2.5rem;margin-bottom:16px">🚀</div>
+        <h2 style="font-family:var(--fd);font-size:1.4rem;font-weight:900;
+                   background:linear-gradient(135deg,#fff,var(--gold));
+                   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+                   background-clip:text;margin-bottom:12px">
+          Ready to Start Your Coding Adventure?
+        </h2>
+        <p style="color:var(--text2);font-size:.9rem;margin-bottom:24px">
+          Join thousands of learners mastering web development and Python — one adventure at a time!
+        </p>
+        <a href="index.html" class="btn btn-primary btn-lg">Begin Your Journey ▶</a>
+      </div>
+
+    </div>
+
+    <footer class="page-footer">
+      Built with ❤️ by <span>@Taiba Shabbir</span> · Coding Adventure © 2025 ·
+      <a href="index.html" style="color:var(--gold)">Start Learning</a>
+    </footer>
+  </div>
+
+  <div class="toast-container" id="toasts"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/game.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

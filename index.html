@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coding Adventure — Learn HTML, CSS, JavaScript and Python through interactive challenges, quizzes, and gamification.">
+  <title>Coding Adventure — Learn to Code</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .hero-kingdoms { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; max-width:800px; margin:40px auto 0; }
+    @media(max-width:600px){ .hero-kingdoms{grid-template-columns:repeat(2,1fr)} }
+    .mini-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 14px;text-align:center;transition:var(--tr)}
+    .mini-card:hover{transform:translateY(-3px);border-color:var(--border-h)}
+    .mini-card .mc-icon{font-size:1.8rem;margin-bottom:8px}
+    .mini-card .mc-name{font-family:var(--fd);font-size:.7rem;font-weight:700;color:var(--gold)}
+    .mini-card .mc-count{font-size:.72rem;color:var(--text2);margin-top:3px}
+    .hero-wrap{max-width:700px;margin:0 auto}
+    .particles-bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+    .star{position:absolute;background:var(--gold);border-radius:50%;animation:twinkle var(--dur,3s) infinite}
+    @keyframes twinkle{0%,100%{opacity:.1}50%{opacity:.6}}
+  </style>
+</head>
+<body data-page="home">
+
+  <!-- Stars background -->
+  <div class="particles-bg" id="stars"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">⚡ Coding<span>Adventure</span></a>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="html.html" class="nav-link">HTML</a>
+      <a href="css.html" class="nav-link">CSS</a>
+      <a href="javascript.html" class="nav-link">JavaScript</a>
+      <a href="python.html" class="nav-link">Python</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    </div>
+    <div class="nav-right">
+      <div class="xp-pill" id="nav-xp">⚡ 0 XP</div>
+      <div class="level-pill" id="nav-level">Lv.1</div>
+      <button class="theme-toggle" id="soundToggle" title="Toggle sound" style="font-size:.9rem">&#128266;</button>
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" id="settingsBtn" title="Settings" onclick="openSettings()" style="font-size:.9rem">&#9881;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="dashboard.html" class="nav-link">Dashboard</a>
+    <a href="html.html" class="nav-link">HTML Kingdom</a>
+    <a href="css.html" class="nav-link">CSS Kingdom</a>
+    <a href="javascript.html" class="nav-link">JS Kingdom</a>
+    <a href="python.html" class="nav-link">Python Kingdom</a>
+    <a href="achievements.html" class="nav-link">Achievements</a>
+    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+    <a href="about.html" class="nav-link">About</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-wrapper" style="padding-top:0">
+    <section class="hero" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px">
+      <div class="hero-wrap" style="position:relative;z-index:1">
+        <div class="hero-badge">🚀 Level Up Your Coding Skills</div>
+        <h1>Master Coding Through<br><span class="gold">Epic Adventures</span></h1>
+        <p>Learn HTML, CSS, JavaScript &amp; Python through interactive lessons, quizzes, challenges, and a gamified XP system. No boring tutorials — just pure learning adventure!</p>
+
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="num">30+</span><span class="label">Lessons</span></div>
+          <div class="hero-stat"><span class="num">120+</span><span class="label">Quiz Questions</span></div>
+          <div class="hero-stat"><span class="num">14</span><span class="label">Challenges</span></div>
+          <div class="hero-stat"><span class="num">10</span><span class="label">Achievements</span></div>
+        </div>
+
+        <!-- Start Form -->
+        <form class="name-form" id="start-form">
+          <div class="name-input-wrap">
+            <span class="icon">👤</span>
+            <input type="text" class="name-input" id="player-name" placeholder="Enter your name to begin..." maxlength="30" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-full">🚀 Start Your Adventure</button>
+          <button type="button" class="btn btn-outline w-full hidden" id="continue-btn">▶ Continue Journey</button>
+        </form>
+
+        <!-- Kingdom Preview -->
+        <div class="hero-kingdoms">
+          <div class="mini-card"><div class="mc-icon">🏰</div><div class="mc-name">HTML</div><div class="mc-count">7 Lessons</div></div>
+          <div class="mini-card"><div class="mc-icon">🎨</div><div class="mc-name">CSS</div><div class="mc-count">7 Lessons</div></div>
+          <div class="mini-card"><div class="mc-icon">⚡</div><div class="mc-name">JavaScript</div><div class="mc-count">8 Lessons</div></div>
+          <div class="mini-card"><div class="mc-icon">🐍</div><div class="mc-name">Python</div><div class="mc-count">8 Lessons</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast-container" id="toasts"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/game.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Generate star field
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 2.5 + 0.5;
+      s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;animation-delay:${Math.random()*4}s`;
+      starsEl.appendChild(s);
+    }
+  </script>
+</body>
+</html>
